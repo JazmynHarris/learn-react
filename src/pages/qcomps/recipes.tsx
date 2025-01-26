@@ -12,11 +12,35 @@ export const recipes = [{
   ingredients: new Set(['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini'])
 }];
 
+function IngredientItemList({ ingredients }: { ingredients: Array<string> }) {
+  return (
+    <div>
+      <ul>
+        {ingredients.map((ingredient) => 
+        <li key={ingredient}>{ingredient}</li>)}
+      </ul>
+      
+    </div>
+  );
+}
+
+function RecipeDiv({ name, ingredients }: { name: string, ingredients: Array<string> }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <h5>Ingredients</h5>
+      <IngredientItemList ingredients={ingredients} />
+    </div>
+  );
+}
+
 export default function RecipeList() {
+  const recipeDivList = recipes.map((recipe) =>
+    <RecipeDiv key={recipe.id} name={recipe.name} ingredients={Array.from(recipe.ingredients)} />);
   return (
     <div>
       <h1>Recipes</h1>
-      {}
+      {recipeDivList}
     </div>
   );
 }
