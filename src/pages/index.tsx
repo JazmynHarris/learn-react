@@ -8,9 +8,13 @@ import List from "./qcomps/list_keys_id";
 import PackingList from "./components/props_item";
 import Holder from "./components/square";
 import RecipeList from "./qcomps/recipes";
+import Gallery from "./qcomps/state";
+import Form from "./qcomps/stuckForm";
+import Counter from "./components/queueUpdates";
+import RequestTracker from "./qcomps/shoppingCart";
 
 export default function Home() {
   return (
-    <RecipeList />
+    <RequestTracker />
   )
 }
